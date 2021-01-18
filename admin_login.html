@@ -1,0 +1,29 @@
+{% extends "logintemplate.html" %}
+{% block body %}
+
+<body>
+<center>
+<form id="form1" name="form1" method="post" action="/log">
+  <table width="416" height="193" border="1">
+    <tr>
+      <th colspan="2" scope="col"><strong>ADMIN LOGIN</strong></th>
+    </tr>
+    <tr>
+      <td width="190"><strong>Username</strong></td>
+      <td width="210"><label for="username"></label>
+      <input type="text" name="username" id="username" required/></td>
+    </tr>
+    <tr>
+      <td><strong>Password</strong></td>
+      <td><label for="password"></label>
+      <input type="password" name="password" id="password" required/></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input type="submit" name="login" id="login" value="LOGIN" /><!--<a href="/uploadphoto">Upload Attendance</a>--></td>
+    </tr>
+  </table>
+</form>
+</center>
+</body>
+{% endblock %}
+
