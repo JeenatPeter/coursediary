@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TeacherHome"
+    android:background="@drawable/img">
+
+    <Button
+        android:id="@+id/hometh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="35dp"
+        android:text="Home"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/addsyllabus"
+        android:layout_width="151dp"
+        android:layout_height="44dp"
+        android:background="@drawable/login_button_bk"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="48dp"
+        android:text="Add Syllabus"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewsubjects" />
+
+    <Button
+        android:id="@+id/viewsyllabus"
+        android:layout_width="151dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="48dp"
+        android:text="View Syllabus"
+        android:background="@drawable/login_button_bk"
+        app:layout_constraintStart_toEndOf="@+id/addsyllabus"
+        app:layout_constraintTop_toBottomOf="@+id/logout" />
+
+    <Button
+        android:id="@+id/addattendance"
+        android:layout_width="151dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/login_button_bk"
+        android:text="Add Attendance"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addsyllabus" />
+
+    <Button
+        android:id="@+id/viewattendance"
+        android:layout_width="151dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="48dp"
+        android:text="View Attendance"
+        android:background="@drawable/login_button_bk"
+        app:layout_constraintStart_toEndOf="@+id/addattendance"
+        app:layout_constraintTop_toBottomOf="@+id/viewsyllabus" />
+
+    <Button
+        android:id="@+id/viewsubjects"
+        android:layout_width="151dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="112dp"
+        android:text="View Subjects"
+        android:background="@drawable/login_button_bk"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hometh" />
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="151dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="196dp"
+        android:text="Logout"
+        android:background="@drawable/login_button_bk"
+        app:layout_constraintStart_toEndOf="@+id/viewsubjects"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
