@@ -1,0 +1,89 @@
+{% extends "gallery.html" %}
+{% block body %}
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<form id="form1" name="form1" method="post" action="/assignedsubjectview">
+  <div align="center">
+    <table width="355" height="200" border="1">
+      <tr>
+        <td height="68" colspan="2"><div align="center">Assign Subject</div></td>
+      </tr>
+      <tr>
+        <td width="233" >Sem</td>
+        <td width="222"><label for="select"></label>
+          <select name="select" id="select" required>
+            <option value="">Select</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td>Subject</td>
+        <td><label for="select2"></label>
+          <select name="select2" id="select2" required>
+            <option value="">Select</option>
+
+
+        </select></td>
+      </tr>
+      <tr>
+        <td>Faculty</td>
+        <td><label for="select3"></label>
+          <select name="select3" id="select3">
+            {% for i in value %}
+            <option value="{{i[0]}}">{{i[1]}} {{i[2]}} </option>
+            {% endfor %}
+        </select></td>
+      </tr>
+      <tr>
+        <td height="71" colspan="2"><div align="center">
+          <input type="submit" name="button" id="button" value="Assign" />
+          </div>
+        <div align="center"></div></td>
+      </tr>
+    </table>
+  </div>
+  <div align="center"></div>
+</form>
+<div align="center"></div>
+
+
+<script>
+
+$(document).ready(function(){
+
+    $("select#select").change(function() {
+
+        if ($(this).val() != 'default') {
+
+            var sem = $('#select option:selected').text();
+
+
+            $.ajax({
+                type: 'POST',
+                url: "/semsearch",
+                data: { sem: sem },
+
+                success: function(response) {
+                var opt = '';
+    for (var i=0, l=response.length; i<l; i=i+2)
+    {
+        opt+='<option value="'+response[i]+'">'+response[i+1]+'</option>';
+
+}
+
+ $('select#select2').html('').prop('disabled',false)
+    $('select#select2').append(opt);
+                }
+            });
+        }
+        else {
+            $('select#select2').html('').prop('disabled',true);
+        }
+    });
+});
+</script>
+{% endblock %}

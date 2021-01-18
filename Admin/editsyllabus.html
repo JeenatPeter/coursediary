@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Update Syllabus</title>
+</head>
+
+<body>
+<center>
+<form action="/syllabus" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <p>&nbsp;</p>
+  <p><u>Update Syllabus</u></p>
+  <table width="501" height="220" border="1">
+    <tr>
+      <th scope="row">Semester</th>
+      <td><p>
+              <select name="sem" id="sem">
+        <option value="S1" {% if value[6]=="S1" %} selected {% endif %}>-S1-</option>
+          <option value="S2" {% if value[6]=="S2" %} selected {% endif %}>-S2-</option>
+          <option value="S3" {% if value[6]=="S3" %} selected {% endif %}>-S3-</option>
+          <option value="S4" {% if value[6]=="S4" %} selected {% endif %}>-S4-</option>
+          <option value="S5" {% if value[6]=="S5" %} selected {% endif %}>-S5-</option>
+          <option value="S6" {% if value[6]=="S6" %} selected {% endif %}>-S6-</option>
+      </select>
+      </p></td>
+    </tr>
+    <tr>
+      <th scope="row">Course</th>
+      <td>
+      <select name="select" id="select">
+          <option>Select</option>
+          <option {% if value[1]=="MCA" %} selected {% endif %}>MCA</option>
+        </select>
+</td>
+    </tr>
+    <tr>
+      <th scope="row">Syllabus</th>
+      <td><input type="file" name="syllabus" id="syllabus" /></td>
+    </tr>
+    <tr>
+      <th height="36" colspan="2" scope="row"><input type="submit" name="upload" id="upload" value="Upload" /></th>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</center>
+</body>
+</html>

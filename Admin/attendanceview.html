@@ -1,0 +1,96 @@
+{% extends "gallery.html" %}
+{% block body %}
+<center>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<form id="form1" name="form1" method="post" action="attendsearch">
+  <table width="746" height="474" border="1">
+    <tr>
+      <td colspan="2"><div align="center">Attendance View</div></td>
+    </tr>
+    <tr>
+      <td>Semester</td>
+      <td><label for="select2">Choose a Semester:  </label>
+        <select name="semester" id="select" required>
+            <option value="">Select</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td>Course</td>
+      <td><label for="select2">Choose a Course: <br />
+      </label>
+        <select name="course" id="select2" required>
+
+            <option value="">Select</option>
+
+        </select></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="button3" id="button3" value="Search" />
+      </div></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  {% if val|length>0 %}
+  <table width="745" height="103" border="1">
+   <tr>
+    <th scope="col">student name</th>
+    <th scope="col">total working days</th>
+    <th scope="col">total days present</th>
+    <th scope="col">Attendance</th>
+  </tr>
+    {% for i in val %}
+    <tr>
+    <td>{{i[0]}} {{i[1]}}</td>
+    <td>{{i[2]}}</td>
+    <td>{{i[3]}}</td>
+    <td>{{i[4]}}</td>
+  </tr>{% endfor %}
+  </table>
+  {% endif %}
+  <p>&nbsp;</p>
+</form>
+</center>
+<script>
+
+$(document).ready(function(){
+
+    $("select#select").change(function() {
+
+        if ($(this).val() != 'default') {
+
+            var sem = $('#select option:selected').text();
+
+
+            $.ajax({
+                type: 'POST',
+                url: "/semsearch",
+                data: { sem: sem },
+
+                success: function(response) {
+                var opt = '';
+    for (var i=0, l=response.length; i<l; i=i+2)
+    {
+        opt+='<option value="'+response[i]+'">'+response[i+1]+'</option>';
+
+}
+
+ $('select#select2').html('').prop('disabled',false)
+    $('select#select2').append(opt);
+                }
+            });
+        }
+        else {
+            $('select#select2').html('').prop('disabled',true);
+        }
+    });
+});
+</script>
+
+{% endblock %}

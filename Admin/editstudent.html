@@ -1,0 +1,74 @@
+{% extends "gallery.html" %}
+{% block body %}
+<center>
+<form id="form1" name="form1" method="post" action="/sregister_update">
+  <table width="721" height="604" border="1">
+    <tr>
+      <td colspan="2"><div align="center">Edit Student Details</div></td>
+    </tr>
+    <tr>
+      <td>Register Number</td>
+      <td><label for="textfield3"></label>
+      <input type="text" name="rgno" id="rgno" value="{{value[1]}}" required/></td>
+    </tr>
+    <tr>
+      <td>First Name</td>
+      <td><label for="textfield"></label>
+      <input type="text" name="fname" id="fname" value="{{value[2]}}" required pattern="[A-Z a-z.]{3,25}"/></td>
+    </tr>
+    <tr>
+      <td>Last Name</td>
+      <td><label for="textfield2"></label>
+      <input type="text" name="lname" id="lname" value="{{value[3]}}" required pattern="[A-Z a-z.]{3,25}"/></td>
+    </tr>
+    <tr>
+      <td>Roll Number</td>
+      <td><label for="textfield2"></label>
+      <input type="number" name="rno" id="rno" value="{{value[4]}}" required/></td>
+    </tr>
+
+    <tr>
+      <td>Gender</td>
+      <td><input type="radio" name="radio" id="gender" value="Female" {% if value[5]=="Female" %} checked {% endif %} />
+        <label for="radio"> Female
+        <br />
+        <input type="radio" name="radio" id="gender2" value="Male" {% if value[5]=="Male" %} checked {% endif %} />
+Male</label></td>
+    </tr>
+    <tr>
+      <td>Semester</td>
+      <td><label for="select">Choose a Semester:   </label>
+        <select name="semester" id="semester" required>
+          <option value="">Select</option>
+          <option value="1" {% if value[6]=="1" %} selected {% endif %}>1</option>
+          <option value="2" {% if value[6]=="2" %} selected {% endif %}>2</option>
+          <option value="3" {% if value[6]=="3" %} selected {% endif %}>3</option>
+          <option value="4" {% if value[6]=="4" %} selected {% endif %}>4</option>
+          <option value="5" {% if value[6]=="5" %} selected {% endif %}>5</option>
+          <option value="6" {% if value[6]=="6" %} selected {% endif %}>6</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td>Phone Number</td>
+      <td><p>
+        <label for="textfield4"></label>
+      <input type="text" name="phoneno" id="phoneno" value="{{value[7]}}" required pattern="[6789][0-9]{9}" />
+      </p>
+        <p> </p>
+      </td>
+    </tr>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="button" id="regbutton" value="Update" />
+      </form>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <form id="form2" name="form2" method="post" action="/managestudent">
+
+          <input type="submit" name="button2" id="button" value="Go Back"/></div>
+          </td>
+    </tr>
+  </table>
+</form>
+</center>
+{% endblock %}

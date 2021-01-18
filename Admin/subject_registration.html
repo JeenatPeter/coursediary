@@ -1,0 +1,41 @@
+{% extends "gallery.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/subjectregister">
+  <div align="center">
+    <table width="429" border="1">
+      <tr>
+        <td colspan="2"><div align="center">Subject Registration</div></td>
+      </tr>
+      <tr>
+        <td width="171">Sem</td>
+        <td width="242"><label for="select"></label>
+          <select name="select" id="select" required>
+            <option value="">Select</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td>Course Code</td>
+        <td><label for="textfield"></label>
+          <label for="textfield"></label>
+        <input type="text" name="textfield" id="textfield" required pattern="[A-Z 0-9.]{5,20}"/></td>
+      </tr>
+      <tr>
+        <td>Course Name</td>
+        <td><label for="textfield2" required pattern="[A-Z a-z.]{3,50}"></label>
+        <input type="text" name="textfield2" id="textfield2" /></td>
+      </tr>
+      <tr>
+        <td height="45" colspan="2"><div align="center">
+          <input type="submit" name="button" id="button" value="Submit" />
+        </div></td>
+      </tr>
+    </table>
+  </div>
+</form>
+{% endblock %}

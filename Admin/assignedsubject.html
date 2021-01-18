@@ -1,0 +1,27 @@
+{% extends "gallery.html" %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  <div align="center">
+    <table width="554" border="1">
+      <tr>
+        <td height="49" colspan="4"><div align="center">Assigned Subjects</div></td>
+      </tr>
+      <tr>
+        <td width="93">Faculty</td>
+        <td width="93">Sem</td>
+        <td width="162">Course Code</td>
+        <td width="178">Course Name</td>
+      </tr>
+      {% for i in value %}
+      <tr>
+        <td>{{i[0]}} {{i[1]}}</td>
+
+        <td>&nbsp;{{i[2]}}</td>
+        <td>&nbsp;{{i[3]}}</td>
+        <td>&nbsp;{{i[4]}}</td>
+      </tr>
+       {% endfor %}
+    </table>
+  </div>
+</form>
+{% endblock %}
