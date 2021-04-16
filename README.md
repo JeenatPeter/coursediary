@@ -1,5 +1,5 @@
 # coursediary
-Introduction
+# Introduction
 A course diary is to be maintained by each faculty of the department for each course
 handled by him/her. It mainly includes Schedule of Work, Syllabus, Course plan,
 Attendance, Subject coverage.This project provides more efficient methods to handle the
